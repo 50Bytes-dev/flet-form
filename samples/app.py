@@ -21,7 +21,8 @@ async def main(page: ft.Page):
             text,
             ft.Container(
                 padding=10,
-                bgcolor="lightgray",
+                border_radius=8,
+                bgcolor=ft.colors.GREY_800,
                 content=ff.TextField(  # Form auto-detect this as a FormField
                     label="Name",
                     rules=[ff.required],
