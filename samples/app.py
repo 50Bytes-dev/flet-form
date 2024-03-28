@@ -10,10 +10,9 @@ async def main(page: ft.Page):
         print(e)
         if e.valid:
             text.value = "Valid: True"
-            text.update()
         else:
             text.value = "Valid: False"
-            text.update()
+        text.update()
 
     form = ff.Form(
         on_validation_complete=on_validation_complete,
