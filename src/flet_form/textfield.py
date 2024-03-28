@@ -20,10 +20,10 @@ from flet import (
     TextCapitalization,
     InputFilter,
 )
-from flet_form.input import FormInput, FormInputRules
+from flet_form.field import FormField, FormInputRules
 
 
-class TextField(FletTextField, FormInput[str]):
+class TextField(FletTextField, FormField[str]):
 
     def __init__(
         self,
@@ -223,7 +223,7 @@ class TextField(FletTextField, FormInput[str]):
             rtl=rtl,
             adaptive=adaptive,
         )
-        FormInput.__init__(
+        FormField.__init__(
             self,
             rules=rules,
         )

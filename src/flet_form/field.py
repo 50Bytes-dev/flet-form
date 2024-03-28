@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from flet_form.form import Form
 
 
-class FormInput(Generic[T]):
+class FormField(Generic[T]):
     def __init__(
         self,
         rules: FormInputRules = None,

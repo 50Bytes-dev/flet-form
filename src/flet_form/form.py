@@ -23,7 +23,7 @@ from flet_form.types import (
     ControlsContainer,
     ContentContainer,
 )
-from flet_form.input import FormInput
+from flet_form.field import FormField
 
 
 @dataclass
@@ -132,7 +132,7 @@ class Form(Column):
         )
 
         self.lazy = lazy
-        self.inputs: List[FormInput] = self._prepare_inputs(controls)
+        self.inputs: List[FormField] = self._prepare_inputs(controls)
         self.on_validation_complete = on_validation_complete
 
     async def validate(self):
@@ -155,7 +155,7 @@ class Form(Column):
         self,
         control: Control,
     ) -> bool:
-        return isinstance(control, FormInput)
+        return isinstance(control, FormField)
 
     def _prepare_inputs(
         self,
@@ -169,7 +169,7 @@ class Form(Column):
         for control in controls:
             if isinstance(control, Control):
                 if self._isinput(control):
-                    cast(FormInput, control).attach_form(self)
+                    cast(FormField, control).attach_form(self)
                     inputs.append(control)
             elif isinstance(control, ContentContainer) and control.content is not None:
                 control_inputs = self._prepare_inputs([control.content])

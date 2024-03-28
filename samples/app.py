@@ -19,10 +19,14 @@ async def main(page: ft.Page):
         on_validation_complete=on_validation_complete,
         controls=[
             text,
-            ff.TextField(
-                label="Name",
-                rules=[ff.required],
-                on_change=lambda e: print(e),
+            ft.Container(
+                padding=10,
+                bgcolor="lightgray",
+                content=ff.TextField(  # Form auto-detect this as a FormField
+                    label="Name",
+                    rules=[ff.required],
+                    on_change=lambda e: print(e),
+                ),
             ),
             ff.TextField(
                 label="Email",
